@@ -35,7 +35,7 @@ class PlacesAutocomplete extends Component {
     this.state = {
       idAddress:"",
       autocompleteItems: [],
-      userInputValue: props.inputProps.value,
+      userInputValue:"",
     };
 
     this.autocompleteCallback = this.autocompleteCallback.bind(this);
@@ -130,9 +130,7 @@ class PlacesAutocomplete extends Component {
     this.clearSuggestions();
     var strAddress = address.substring(0, address.length - 10);
     this.handleSelect(strAddress, placeId);
-   
-    this.props.onSelectPlace(strAddress, placeId);
-
+    this.props.onSelectPlace(strAddress, placeId );
     this.setState({ 
       userInputValue: strAddress,
       idAddress:  placeId
@@ -166,6 +164,8 @@ class PlacesAutocomplete extends Component {
     const activeItem = this.getActiveItem();
     if (activeItem === undefined) {
       this.handleEnterKeyWithoutActiveItem();
+   
+      this.setState({userInputValue:""})
     } else {
       this.selectAddress(activeItem.suggestion, activeItem.placeId);
     };
@@ -375,11 +375,13 @@ class PlacesAutocomplete extends Component {
         className={this.classNameFor('root')}
       >
         <form className="group" {...inputProps}>
-          <input className="inputMaterial" type="text" required value={this.state.userInputValue} {...inputProps.onChange} />
-          <label >{hintTextInput}</label>
+          <input className="inputMaterial" type="text" disabled = {this.props.isDisable} required value={this.state.userInputValue} {...inputProps.onChange} />
+          {!this.state.userInputValue && <label >{hintTextInput}</label>}
           <div className="bar"></div>
 
         </form>
+        <i className="zmdi zmdi-pin-drop" style={{ height: '20px', width: 'auto', marginTop: '6px', display:'right' }}></i>
+        
 
         {this.shouldRenderDropdown() && (
           <div

@@ -141,6 +141,7 @@ class InputPlaceBottom extends Component {
           shouldFetchSuggestions={shouldFetchSuggestions}
           hintTextInput={this.props.hintTextInput}
           onSelectPlace={this.props.onSelectPlace}
+          // isDisable = {this.props.isDisable}
 
         />
 
