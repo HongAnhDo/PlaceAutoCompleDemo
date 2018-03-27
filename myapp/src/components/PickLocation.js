@@ -6,9 +6,10 @@ import InputPlaceTop from './InputPlaceTop'
 import InputPlaceBottom from './InputPlaceBottom'
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 import '../styles/PickLocation.css'
-import {blue500} from 'material-ui/styles/colors'
+import { blue500 } from 'material-ui/styles/colors'
 import { reactLocalStorage } from 'reactjs-localstorage';
 import VarConf from '../localstorage/VarConf'
+import MyMapComponent from '../constant/GoogleMap'
 
 
 class PickLocation extends Component {
@@ -18,8 +19,8 @@ class PickLocation extends Component {
       addressPickUp: "",
       idPlacePickUp: "",
       addressDrop: "",
-      idPlaceDrop: ""
-
+      idPlaceDrop: "",
+      isDisplayMap : false
     }
     this.onSelectPlacePickUp = this.onSelectPlacePickUp.bind(this);
     this.onSelectPlaceDrop = this.onSelectPlaceDrop.bind(this);
@@ -46,6 +47,10 @@ class PickLocation extends Component {
     reactLocalStorage.set(VarConf.pick_local.idPlaceDrop, idPlace);
   }
 
+  _selectMap(){
+
+  }
+
 
   render() {
     const inputProps = {
@@ -59,23 +64,26 @@ class PickLocation extends Component {
           <div className="selectPlace">
             <div className="containerLeft">
 
-              <i className="zmdi zmdi-pin-account" style={{ height: 'auto', width: 'auto', color: blue500, fontSize: '18px' }}></i>
-              <div style={{ height: '20px', width: '1px', left: '49.5%', backgroundColor: '#616161', marginTop: '3px', marginBottom: '3px', position: 'relative' }}></div>
-              <i className="zmdi zmdi-pin" style={{ height: 'auto', width: 'auto', color: 'red', fontSize: '18px' }}></i>
+              <i className="zmdi zmdi-pin-account" style={{ height: 'auto', width: 'auto', color: blue500, fontSize: '18px', paddingLeft: '20%' }}></i>
+              <div className="lineLeft"></div>
+              <i className="zmdi zmdi-pin" style={{ height: 'auto', width: 'auto', color: 'red', fontSize: '18px', paddingLeft: '20%' }}></i>
 
             </div>
+
             <InputPlaceTop onSelectPlace={this.onSelectPlacePickUp} hintTextInput="Điểm đón" />
             <InputPlaceBottom onSelectPlace={this.onSelectPlaceDrop} hintTextInput="Điểm đến" />
+
           </div>
 
         </div>
-        <div className="containerSecond">
+        <div className="containerSecond" onClick = {this._selectMap.bind(this)}>
           <div className="containerSecondCenter" >
             <i className="zmdi zmdi-pin-drop" style={{ height: '20px', width: 'auto', marginTop: '6px' }}></i>
             <span className="textSelect">Chọn địa điểm trên bản đồ</span>
           </div>
 
         </div>
+        {this.state._selectMap && <MyMapComponent/>}
 
       </div>
 

@@ -3,11 +3,12 @@ import { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-auto
 import '../styles/InputPlaceTop.css';
 import PlacesAutocomplete from '../custom/PlacesAutocomplete'
 
+
 const renderSuggestion = ({ formattedSuggestion }) => (
   <div className="Demo__suggestion-item-bottom">
     <div style={{ height: '100%', display: 'inline',  color: "#979797" }}>
-      <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', fontSize: '14px' }}>
-        <i className="zmdi zmdi-pin" style={{ marginRight: 10, height: '100%', display: 'inline', color: "#979797", fontSize: '16px' }}></i>
+      <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', fontSize: '13px' }}>
+        <i className="zmdi zmdi-pin" style={{ marginRight: 10, height: '100%', display: 'inline', color: "#979797", fontSize: '15px' }}></i>
         {formattedSuggestion.address}
       </div>
     </div>

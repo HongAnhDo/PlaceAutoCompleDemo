@@ -4,7 +4,7 @@ input {
   margin: 0;
   padding: 0;
   position: relative;
-  width: 80%;
+  width: 90%;
 }
 .body, #root, .page-wrapper {
   height: 100%;
@@ -16,11 +16,13 @@ input {
   margin-right: 8px;
 }
 .Demo__autocomplete-container {
-  width: 120%;
+  width: 115%;
   position: relative;
   border-style:hidden;
-  margin-top: 113px;
+  margin-top: 115px;
   padding-top: 5px;
+  padding-left: 1%;
+  
 }
 .Demo__search-input {
   border-style:hidden;
@@ -32,7 +34,7 @@ input {
   text-align: left;
   border-bottom: 0.2px solid #CCC;
   border-bottom-width: 70%;
-  margin-left: 2%;
+ 
 
 }
 .Demo__dropdown-footer {

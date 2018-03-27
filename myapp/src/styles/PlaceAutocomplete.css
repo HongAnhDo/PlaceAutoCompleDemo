@@ -29,7 +29,6 @@ html{
   outline: none; 
   background-position: right;
   background-repeat: no-repeat;
-  background-image: url('../images/ic_location.png');
   background-size: 15px 15px;
 
 }
@@ -70,10 +69,10 @@ label 				 {
   -webkit-transition:0.2s ease all;
 }
 .bar:before {
-  left:70%;
+  left:65%;
 }
 .bar:after {
-  right:30%; 
+  right:35%; 
 }
 
 /* active state */

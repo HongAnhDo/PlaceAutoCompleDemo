@@ -17,11 +17,12 @@ input {
 
 }
 .Demo__autocomplete-container-bottom {
-  width: 125%;
-  border-style:hidden;
+  width: 115%;
   position: relative;
-  margin-top: 72px;
+  border-style:hidden;
+  margin-top: 74px;
   padding-top: 5px;
+  padding-left: 1%;
 }
 
 .Demo__search-input {
@@ -33,10 +34,8 @@ input {
 
 .Demo__suggestion-item-bottom {
   text-align: left;
-  padding: 1px;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 0.2px solid #CCC;
   border-bottom-width: 70%;
-  margin-left: 2%;
 }
 .Demo__dropdown-footer {
   display: block;
